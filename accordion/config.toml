@@ -1,0 +1,13 @@
+[[field]]
+name = "Accordion"
+handle = "accordion"
+instructions = "Enter additional product information herer"
+type = "composite"
+
+[[field.schema]]
+name = "Header"
+type = "text"
+
+[[field.schema]]
+name = "Content"
+type = "html"

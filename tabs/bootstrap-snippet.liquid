@@ -1,0 +1,22 @@
+{% assign rows = product.metafields["advanced_description"]["tabs"]  | split: '<!--|row|-->'%}
+<div>
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    {% for row in rows %}
+      {% assign cols = row | split: '<!--|col|-->' %}
+      <li role="presentation" class="active">
+        <a href="#tab-{{ forloop.index }}" role="tab" data-toggle="tab">{{ cols[0] }}</a>
+      </li>
+    {% endfor %}
+    </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    {% for row in rows %}
+      {% assign cols = row | split: '<!--|col|-->' %}
+      <div role="tabpanel" class="tab-pane" id="tab-{{ forloop.index }}">{{ cols[1] }}</div>
+    {% endfor %}
+  </div>
+
+</div>

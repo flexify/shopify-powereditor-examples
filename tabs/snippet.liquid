@@ -1,0 +1,19 @@
+{% assign rows = product.metafields["power-editor"]["tabs"]  | split: '<!--|row|-->'%}
+<div>
+  <ul class="tabs">
+    <li><a href="#tab-0">Info</a></li>
+    {% for row in rows %}
+      {% assign cols = row | split: '<!--|col|-->' %}
+      <li><a href="#tab-{{ forloop.index }}">{{ cols[0] }}</a></li>
+    {% endfor %} 
+  </ul>
+  <div id="tab-0">
+    {{ product.description }}
+  </div>
+  {% for row in rows %}
+    {% assign cols = row | split: '<!--|col|-->' %}
+    <div id="tab-{{ forloop.index }}">
+      {{ cols[0] }}
+    </div>
+  {% endfor %}
+</div>

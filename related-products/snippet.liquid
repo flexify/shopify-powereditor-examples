@@ -1,0 +1,13 @@
+{% assign rows = product.metafields["power-editor"]["products"]  | split: '<!--|row|-->'%}
+<div class="related-products">
+  {% for product_handle in rows %}
+
+    {% assign product = all_products[product_handle] %}
+    <a href="{{ product.url | within: collection }}">
+      <img src="{{ product.featured_image.src }}" alt="{{ product.featured_image.alt }}">
+      <div>{{ product.title }}</div>
+      <div>{{ product.price | money }}</div>
+    </a>
+
+  {% endfor %} 
+</div>

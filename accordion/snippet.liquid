@@ -1,0 +1,9 @@
+<div class="accordion">
+  {% assign rows = product.metafields["power-editor"]["accordion"]  | split: '<!--|row|-->'%}
+  {% for row in rows %}
+    {% assign cols = row | split: '<!--|col|-->' %}
+      <div class="accord-header"><strong>{{cols[0]}}</strong></div>
+      <div {% if forloop.first %}style="display: block;" {% endif %} class="accord-content">{{cols[1]}}</div>
+    {% if forloop.last %}<hr>{% endif %}
+  {% endfor %}
+</div>

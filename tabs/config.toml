@@ -1,0 +1,14 @@
+[[field]]
+name = "Product Description Tabs"
+type = "composite"
+handle = "tabs"
+maxEntries = 5
+instructions = "Add tabs here"
+
+[[field.schema]]
+name = "Tab Heading"
+type = "text"
+
+[[field.schema]]
+name = "Tab Content"
+type = "html"

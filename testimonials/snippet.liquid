@@ -1,0 +1,24 @@
+<div class="testimonials">
+  
+  {% assign rows = product.metafields["power-editor"]["testimonials"]  | split: '<!--|row|-->'%}
+ 
+  {% for row in rows %}
+    {% assign cols = row | split: '<!--|col|-->' %}
+    {% assign portrait = cols[0] %}
+    {% assign author = cols[1] %}
+    {% assign quote = cols[2] %}
+    {% assign link = cols[3] %}
+
+      <img src="{{portrait}}">
+      <blockquote cite="{{link}}">
+       {{quote}}
+       <footer>
+          <cite>
+            <a href="{{link}}">{{author}}</a>
+          </cite>
+      </footer>
+      </blockquote>
+
+  {% endfor %}
+  
+</div>

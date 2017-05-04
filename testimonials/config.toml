@@ -1,0 +1,22 @@
+[[field]]
+name = "Testimonials"
+handle = "testimonials"
+instructions = "Let our customers speak"
+type = "composite"
+
+[[field.schema]]
+name = "Portait"
+type =  "image"
+
+[[field.schema]]
+name = "Author name"
+type = "text"
+
+[[field.schema]]
+name = "The quote"
+type = "html"
+
+[[field.schema]]
+name = "Citation Link"
+type = "text"
+placeholder = "http://..."

@@ -1,0 +1,26 @@
+$accordion-border: 1px solid #788188;
+
+.accord-content { 
+  display: none; 
+  margin-bottom: 1em;
+  &.last {
+    border-bottom: $accordion-border;
+  }
+}
+
+.accord-header {
+  border-top: $accordion-border;
+  height: 2em;
+  padding-top: 0.2em;
+  &:hover {
+    cursor:pointer;
+  }
+  &:last-child  {
+    border-bottom: $accordion-border;
+  }
+}
+
+.accordion hr {
+  margin: 0;
+  border-bottom: $accordion-border;
+}

@@ -1,0 +1,8 @@
+[[field]]
+name = "Related Products"
+type = "composite"
+handle = "products"
+
+[[field.schema]]
+name = "Product"
+type = "product"
