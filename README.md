@@ -9,3 +9,4 @@ This repo provides config code and liquid code snippets to illustrate several co
 * [Accordion](accordion)
 * [Testimonials](testimonials)
 * [Related Products](related-products)
+* [Store Locator](store-locator)

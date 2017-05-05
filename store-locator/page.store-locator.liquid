@@ -1,0 +1,68 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+<script src="https://cdn.rawgit.com/googlemaps/js-store-locator/gh-pages/dist/store-locator.min.js"></script>
+<link rel="stylesheet" href="https://cdn.rawgit.com/googlemaps/js-store-locator/gh-pages/css/storelocator.css" />
+<style type="text/css">
+  #map-canvas, #panel { height: 500px; }
+  #panel { width: 300px; float: left; margin-right: 10px; }
+</style>
+<script type="text/javascript">
+
+{% assign rows = page.metafields["power-editor"]["stores"]  | split: '<!--|row|-->'%}
+var rows = [
+  {% for row in rows %}
+    {% assign cols = row | split: '<!--|col|-->' %}
+    { 
+      title: "{{ cols[0] }}", 
+      longitude:  "{{ cols[1] }}", 
+      latitude:  "{{ cols[2] }}", 
+      address: "{{ cols[3] | newline_to_br | strip_newlines }}", 
+      wheelchair: "{{ cols[4] }}"  
+    },
+  {% endfor %}
+  ];
+
+  var FEATURES = new storeLocator.FeatureSet(
+    new storeLocator.Feature('wheelchair-true', 'Wheelchair access')
+  );
+  var stores = [];
+  for (var i = 0, row; row = rows[i]; i++) {
+    var features = new storeLocator.FeatureSet;
+    features.add(FEATURES.getById('wheelchair-' + row.wheelchair));
+
+    var position = new google.maps.LatLng(row.latitude, row.longitude);
+    var store = new storeLocator.Store(i, position, features, {
+      title: row.title,
+      address: row.address
+    });
+    stores.push(store);
+  }
+
+  google.maps.event.addDomListener(window, 'load', function() {
+  var map = new google.maps.Map(document.getElementById('map-canvas'), {
+    center: new google.maps.LatLng(40, -73),
+    zoom: 4,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  });
+
+  var panelDiv = document.getElementById('panel');
+
+  function MyDataSource() {
+    $.extend(this, new storeLocator.StaticDataFeed);
+    this.setStores(stores);
+  }
+
+  var view = new storeLocator.View(map, new MyDataSource(), {
+    geolocation: false,
+    features: FEATURES
+  });
+
+  new storeLocator.Panel(panelDiv, {
+    view: view
+  });
+});
+
+</script>
+
+<div id="panel"></div>
+<div id="map-canvas"></div>

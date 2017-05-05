@@ -1,0 +1,26 @@
+[[field]]
+name = "Store"
+handle = "stores"
+type = "composite"
+template = "store-locator"
+
+[[field.schema]]
+name = "Title/Name"
+type = "text"
+
+[[field.schema]]
+name = "Longitude"
+type = "number"
+
+[[field.schema]]
+name = "Latitude"
+type = "number"
+
+[[field.schema]]
+name = "Address"
+type = "textarea"
+rows = 3
+
+[[field.schema]]
+name = "wheelchair accessible"
+type = "checkbox"
