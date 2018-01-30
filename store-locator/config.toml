@@ -1,5 +1,5 @@
 [[field]]
-name = "Store"
+name = "Stores"
 handle = "stores"
 type = "composite"
 template = "store-locator"
