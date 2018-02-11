@@ -1,6 +1,6 @@
 # Embed YouTube Video
 
-Embed a YouTube videos by letting users enter a youtube video ID.
+Embed a YouTube video by letting users enter a youtube video ID.
 
 ## Files
 
