@@ -10,3 +10,4 @@ This repo provides config code and liquid code snippets to illustrate several co
 * [Testimonials](testimonials)
 * [Related Products](related-products)
 * [Store Locator](store-locator)
+* [YouTube Embed](youtube-embed)
